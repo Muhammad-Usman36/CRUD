@@ -1,20 +1,23 @@
+// App.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Page1 from './Page1';
+import Page2 from './Page2';
+import Page3 from './Page3';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello, World!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Page1">
+        <Stack.Screen name="Page1" component={Page1} />
+        <Stack.Screen name="Page2" component={Page2} />
+        <Stack.Screen name="Page3" component={Page3} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 
 export default App;
